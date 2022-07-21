@@ -25,6 +25,9 @@ public class Producer {
         producer.setExecutorService(executorService);
         // producer.setSendMsgTimeout(5000);
 
+        // 推荐的实现做法：
+        // 业务执行完毕后，添加一条数据到消息表，记录消息的状态
+        // check阶段检查消息表是否存在对应id的消息并且状态为提交状态
         producer.setTransactionListener(new TransactionListener() {
             @Override
             public LocalTransactionState executeLocalTransaction(Message msg, Object arg) {

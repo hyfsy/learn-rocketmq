@@ -68,6 +68,8 @@ public class Producer {
             producer.send(Collections.singletonList(message));
 
             // 延时消息，只支持指定的延时级别，不支持指定时间
+            // MessageStoreConfig.messageDelayLevel
+            // 1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h
             message.setDelayTimeLevel(3);
             // 设置属性，消费者可通过属性对消息进行过滤
             message.putUserProperty("p1", "p1-name");

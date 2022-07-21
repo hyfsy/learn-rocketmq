@@ -30,6 +30,9 @@ public class Consumer {
 
         // 从某个时间点开始消费
         consumer.setConsumeTimestamp(UtilAll.timeMillisToHumanString3(System.currentTimeMillis() - (1000 * 60 * 30)));
+
+        // 设置Topic **第一次** 进行消费的消费进度
+
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_TIMESTAMP);
         // 从队列尾部消费，跳过历史消息
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
